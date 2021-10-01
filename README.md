@@ -8,8 +8,8 @@ Sample Goal System Unity
 
 ### Create a script example name Objetive1 what will extend of Goal
 
-### Implement method IsRunning with your logic
+### Implement method IsRunning with your logic. When Goal completed return GoalStatus.COMPLETED or GoalStatus.FAILED to break execution. By default leaves the GoalStatus.RUNNING status.
 
-### When Goal completed return GoalStatus.COMPLETED or GoalStatus.FAILED to break execution
+### Use method Activate to enable or Deactivate to disable
 
-### By default leaves the GoalStatus.RUNNING status
+### The method IsRunning is only executed when the objective is enabled
