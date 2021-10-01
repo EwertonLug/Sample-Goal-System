@@ -13,3 +13,5 @@ Sample Goal System Unity
 ### Use method Activate to enable or Deactivate to disable
 
 ### The method IsRunning is only executed when the objective is enabled
+
+### To check if all goals have been completed use GoalManager.Instance.IsCompletedGoals
