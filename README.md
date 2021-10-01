@@ -2,14 +2,14 @@
 Sample Goal System Unity
 ## How to use
 
-###Add Prefab GoalManager in Scene
-###Add Prefab Panel [GoalSystemSample] in Canvas
+### Add Prefab GoalManager in Scene
+### Add Prefab Panel [GoalSystemSample] in Canvas
 
 
-###Create a script example name Objetive1 what will extend of Goal
+### Create a script example name Objetive1 what will extend of Goal
 
-###Implement method IsRunning with your logic
+### Implement method IsRunning with your logic
 
-###When Goal completed return GoalStatus.COMPLETED or GoalStatus.FAILED to break execution
+### When Goal completed return GoalStatus.COMPLETED or GoalStatus.FAILED to break execution
 
-###By default leaves the GoalStatus.RUNNING status
+### By default leaves the GoalStatus.RUNNING status
