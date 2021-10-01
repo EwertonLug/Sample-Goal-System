@@ -1,6 +1,6 @@
 # Sample-Goal-System-Unity
 Sample Goal System Unity
-## How to use
+# How to use
 
 ### Add Prefab GoalManager in Scene
 ### Add Prefab Panel [GoalSystemSample] in Canvas
