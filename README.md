@@ -1,2 +1,2 @@
-# Sample-Goal-System
+# Sample-Goal-System-Unity
 Sample Goal System Unity
