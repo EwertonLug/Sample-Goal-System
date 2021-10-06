@@ -8,10 +8,10 @@ public class GoalHud : MonoBehaviour
     public int sequencia;
     public TextMeshProUGUI title;
     public GameObject imgCompleted;
-    public void Inite(int sequence, string text)
+    public void Inite(Goal g)
     {
-        title.text = text;
-        this.sequencia = sequence;
+        title.text = g.description;
+        this.sequencia = g.sequenceID;
         Goal.Achieved += OnCompleted;
     }
     public void OnCompleted(Goal g)

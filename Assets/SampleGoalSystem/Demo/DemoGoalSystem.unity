@@ -2893,20 +2893,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6736784599822760017, guid: a250d7fe3a44620469107939ce607c5a,
+    - target: {fileID: 6736784600488828518, guid: a250d7fe3a44620469107939ce607c5a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: description
+      value: Coletar um Item
       objectReference: {fileID: 0}
     - target: {fileID: 6736784600488828518, guid: a250d7fe3a44620469107939ce607c5a,
         type: 3}
       propertyPath: explanation
-      value: Chegue ao ponto 2 e pressionar E
-      objectReference: {fileID: 0}
-    - target: {fileID: 6736784600488828518, guid: a250d7fe3a44620469107939ce607c5a,
-        type: 3}
-      propertyPath: title
-      value: Chegar ao Ponto 2 e Pressionar E
+      value: Chegue ao ponto 2 e coletar o item pressionando E
       objectReference: {fileID: 0}
     - target: {fileID: 6736784600488828519, guid: a250d7fe3a44620469107939ce607c5a,
         type: 3}
@@ -5333,15 +5328,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300632232938761938, guid: d47a4473ca4556649955a4fe0cd7741f,
+        type: 3}
+      propertyPath: description
+      value: Pular
+      objectReference: {fileID: 0}
     - target: {fileID: 2300632232938761939, guid: d47a4473ca4556649955a4fe0cd7741f,
         type: 3}
       propertyPath: m_Name
       value: Objective1Trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300632233773859043, guid: d47a4473ca4556649955a4fe0cd7741f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d47a4473ca4556649955a4fe0cd7741f, type: 3}
@@ -5505,7 +5500,7 @@ GameObject:
   - component: {fileID: 61875226800700030}
   - component: {fileID: 50899858925156808}
   - component: {fileID: 1361958039617431}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5667,7 +5662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680011928779204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.169, z: 0.2236328}
+  m_LocalPosition: {x: 0, y: -0.97, z: 0.2236328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4992404526821286}
@@ -5856,9 +5851,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 32e3aa5a834a4224ba4507bc1a89dd2a, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &61133497502246383
 BoxCollider2D:

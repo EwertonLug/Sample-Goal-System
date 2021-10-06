@@ -11,6 +11,7 @@ namespace GoalSystem
 		private float movementspeed = 10f;
 		[SerializeField]
 		private float jumpheigt = 10f;
+		private bool jump = false;
 		private bool isGround;
 		private bool facing = true;
 		private float horizontal;
@@ -23,14 +24,19 @@ namespace GoalSystem
 		{
 			myrigidbody = GetComponent<Rigidbody2D>();
 		}
-		void FixedUpdate()
-		{
+
+        private void Update()
+        {
+			jump = Input.GetButtonDown("Jump");
 			horizontal = Input.GetAxis("Horizontal");
+		}
 
-			isGround = Physics2D.OverlapCircle(groundCheck.position, 0.2f, whatIsGround);
+        void FixedUpdate()
+		{
 
-			myrigidbody.velocity = new Vector2(horizontal * movementspeed, myrigidbody.velocity.y);
-			if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
+			isGround = Physics2D.OverlapCircle(groundCheck.position, 0.4f, whatIsGround);
+
+			if (jump && isGround)
 			{
 				myrigidbody.AddForce(transform.up * jumpheigt, ForceMode2D.Impulse);
 			}
@@ -42,7 +48,9 @@ namespace GoalSystem
 			{
 				Flip();
 			}
+			myrigidbody.velocity = new Vector2(horizontal * movementspeed, myrigidbody.velocity.y);
 		}
+		
 		private void Flip()
 		{
 			facing = !facing;
@@ -78,5 +86,15 @@ namespace GoalSystem
 					Finish();
 			}
 		}
-	}
+        private void OnDrawGizmosSelected()
+        {
+			Gizmos.color = Color.red;
+			if (isGround)
+            {
+				Gizmos.color = Color.green;
+			}
+			
+			Gizmos.DrawWireSphere(groundCheck.position, 0.4f);
+		}
+    }
 }

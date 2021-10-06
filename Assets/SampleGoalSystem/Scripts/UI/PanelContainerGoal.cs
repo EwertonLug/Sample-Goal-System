@@ -19,17 +19,20 @@ public class PanelContainerGoal : MonoBehaviour
 
     private void CreateUIGoal(Goal g)
     {
-        var ui = Instantiate(prefabGoalText, transform.position, Quaternion.identity);
-        ui.transform.SetParent(transform,false);
-        GoalHud hud = ui.GetComponent<GoalHud>();
-        ui.name = "GoalHud (seq= "+g.sequenceID+")";
-        hud.Inite(g.sequenceID,g.title);
+        if (!goalsHud.Exists(goal => goal.sequencia == g.sequenceID))
+        {
+            var ui = Instantiate(prefabGoalText, transform.position, Quaternion.identity);
+            ui.transform.SetParent(transform, false);
 
-        goalsHud.Add(hud);
+            GoalHud hud = ui.GetComponent<GoalHud>();
+            hud.Inite(g);
 
-        ReorderList();
-        
+            goalsHud.Add(hud);
 
+            ui.name = "GoalHud (seq= " + g.sequenceID + ")";
+            ReorderList();
+
+        }
 
 
     }

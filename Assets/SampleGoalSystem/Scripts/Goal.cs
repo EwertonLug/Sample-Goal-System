@@ -22,7 +22,7 @@ namespace GoalSystem
         public GoalType type = GoalType.REQUIRED;
 
         public int sequenceID;
-        public string title;
+        public string description;
         [TextArea]
         public string explanation;
         private bool activeGoal = false;
@@ -31,12 +31,11 @@ namespace GoalSystem
         public static Action<Goal> Started;//Iniciado
         public static Action<Goal> Achieved;//Alcançado
         public static Action<Goal> Failed;//Falhou
-
+        public static Action<Goal> Activated;//Ativado
+        public static Action<Goal> Deactivated;//Desativado
         //States
         public GoalStatus goalStatus = GoalStatus.RUNNING;
-        //Unity Event
-        public UnityEvent OnActivated;
-        public UnityEvent OnDeactivated;
+       
         private void Start()
         {
             Started?.Invoke(this);
@@ -71,12 +70,12 @@ namespace GoalSystem
         public void Activate()
         {
             activeGoal = true;
-            OnActivated.Invoke();
+            Activated?.Invoke(this);
         }
         public void Deactivate()
         {
             activeGoal = false;
-            OnDeactivated.Invoke();
+            Deactivated?.Invoke(this);
         }
         public bool IsActivated()
         {
