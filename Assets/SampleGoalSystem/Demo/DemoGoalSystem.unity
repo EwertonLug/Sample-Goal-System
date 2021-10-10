@@ -5521,7 +5521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementspeed: 10
   jumpheigt: 15
-  boxCollider: {fileID: 61875226800700030}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
