@@ -12,10 +12,11 @@ namespace GoalSystem
 		[SerializeField]
 		private float jumpheigt = 10f;
 		private bool jump = false;
-		private bool isGround;
+		
 		private bool facing = true;
 		private float horizontal;
-		public Transform groundCheck;
+		public BoxCollider2D boxCollider;
+		
 
 		public LayerMask whatIsGround;
 		public static Action playerLost;
@@ -23,21 +24,29 @@ namespace GoalSystem
 		void Start()
 		{
 			myrigidbody = GetComponent<Rigidbody2D>();
+			boxCollider = GetComponent<BoxCollider2D>();
 		}
 
         private void Update()
         {
-			jump = Input.GetButtonDown("Jump");
+			
+			if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+			{
+				jump = true;
+            }
+            
+			
 			horizontal = Input.GetAxis("Horizontal");
 		}
 
         void FixedUpdate()
 		{
 
-			isGround = Physics2D.OverlapCircle(groundCheck.position, 0.4f, whatIsGround);
-
-			if (jump && isGround)
+			
+			
+			if (jump)
 			{
+				jump = false;
 				myrigidbody.AddForce(transform.up * jumpheigt, ForceMode2D.Impulse);
 			}
 			if (horizontal > 0 && !facing)
@@ -70,6 +79,11 @@ namespace GoalSystem
 			playerWon?.Invoke();
 			Destroy(gameObject);
 		}
+		private bool IsGrounded()
+        {
+			RaycastHit2D ground =  Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,0, Vector2.down, 0.1f, whatIsGround);
+			return ground.collider != null;
+		}
 		void OnTriggerEnter2D(Collider2D col)
 		{
 			if (col.tag == "Saw")
@@ -89,12 +103,17 @@ namespace GoalSystem
         private void OnDrawGizmosSelected()
         {
 			Gizmos.color = Color.red;
-			if (isGround)
+
+			if (IsGrounded())
             {
 				Gizmos.color = Color.green;
 			}
-			
-			Gizmos.DrawWireSphere(groundCheck.position, 0.4f);
+			var posY = boxCollider.bounds.center.y - (boxCollider.bounds.size.y / 2);
+			var posX = boxCollider.bounds.center.x;
+
+			var pos = new Vector2(posX, posY);
+
+			Gizmos.DrawWireSphere(pos, boxCollider.bounds.size.x/2);
 		}
     }
 }
