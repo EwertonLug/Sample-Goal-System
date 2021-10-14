@@ -14,7 +14,7 @@ namespace GoalSystem
         public List<Goal> goals = new List<Goal>();
 
         //Events
-        public static Action CompletedGoals;
+        public static event Action CompletedGoals;
 
         private bool isCompletedGoals = false;
 

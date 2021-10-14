@@ -28,11 +28,11 @@ namespace GoalSystem
         private bool activeGoal = false;
        
         //events
-        public static Action<Goal> Started;//Iniciado
-        public static Action<Goal> Achieved;//Alcançado
-        public static Action<Goal> Failed;//Falhou
-        public static Action<Goal> Activated;//Ativado
-        public static Action<Goal> Deactivated;//Desativado
+        public static event Action<Goal> Started;//Iniciado
+        public static event Action<Goal> Achieved;//Alcançado
+        public static event Action<Goal> Failed;//Falhou
+        public static event Action<Goal> Activated;//Ativado
+        public static event Action<Goal> Deactivated;//Desativado
         //States
         public GoalStatus goalStatus = GoalStatus.RUNNING;
        

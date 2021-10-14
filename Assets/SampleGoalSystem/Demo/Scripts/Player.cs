@@ -19,8 +19,8 @@ namespace GoalSystem
 
 
         public LayerMask whatIsGround;
-        public static Action playerLost;
-        public static Action playerWon;
+        public static event Action playerLost;
+        public static event Action playerWon;
         void Start()
         {
             myrigidbody = GetComponent<Rigidbody2D>();
